@@ -11,6 +11,8 @@
 @interface Game:NSObject
 
 -(BOOL)checkWin;
+
+-(BOOL)getWin;
 -(BOOL)checkDraw;
 
 -(void)startGame;
@@ -19,6 +21,8 @@
 -(void)printTutorialBoard;
 
 -(void)turn;
+-(void)setGameSize(int)size;
+-(int)getGameSize;
 
 @end
 
@@ -33,6 +37,11 @@
     NSString *_winner;
     
     NSMutableArray *_gameboard;
+	int _gameSize;
+}
+
+-(void)setGameSize:(int)size {
+	_gameSize = size;
 }
 
 -(void)printTutorialBoard{
@@ -49,6 +58,9 @@
     
 }
 
+-(BOOL) getWin {
+return win;
+}
 
 
 
