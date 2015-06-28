@@ -51,9 +51,14 @@
 }
 
 -(void)printTutorialBoard{
-	NSLog(@"|0|1|2|");
-	NSLog(@"|3|4|5|");
-	NSLog(@"|6|7|8|");
+	for (int i = 0; i < pow (_gameSize,2); i++) {
+		if (i % _gameSize -1 == 0) {
+			printf("|%d|\n", i);
+			
+		}else{
+			printf("|%d|", i);
+		}
+	};
 }
 
 
@@ -71,10 +76,15 @@
 -(void)startGame {
 	NSLog(@"Welcome to Derek's and Eric's TicTacToe!");
 	_win = NO;
+	NSLog(@"Set a game size, fool.");
+	int userGameSize;
+	scanf("%d",&userGameSize);
+	[self setGameSize:userGameSize];
+	
 	
 	//fill gameboard with spaces
 	_gameboard = [[NSMutableArray alloc] init];
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < pow (_gameSize,2); i++) {
 		[_gameboard addObject:@" "];
 	}
 	
